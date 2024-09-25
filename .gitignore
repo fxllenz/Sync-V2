@@ -1,3 +1,8 @@
 .env
 NOTES.txt
 __pycache__
+cogs/__pycache__/utility.cpython-311.pyc
+cogs/__pycache__/ai.cpython-311.pyc
+cogs/__pycache__/fun.cpython-311.pyc
+cogs/__pycache__/moderation.cpython-311.pyc
+cogs/__pycache__/utility.cpython-311.pyc
