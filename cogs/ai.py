@@ -8,6 +8,9 @@ import json
 import time
 from nextcord.ui import Button, View
 from nextcord import Embed
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 class AI(commands.Cog):
     def __init__(self, bot):
@@ -17,8 +20,8 @@ class AI(commands.Cog):
     async def ask_ai(self, ctx, prompt: str):
         print(f'{Fore.BLUE}[COGS]{Fore.MAGENTA} [COMMAND]{Fore.GREEN} /ask-ai | {ctx.user}')
         await ctx.response.defer()
-        api_key = "sync-kXpmFG061skhkVZaERvW8aNt"
-        url = "https://api.sync-ai.xyz/v1/chat/completions"
+        api_key = os.getenv('API_KEY')
+        url = os.getenv('TEXT_URL')
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
@@ -125,8 +128,8 @@ class AI(commands.Cog):
 
         await ctx.response.defer()
 
-        api_key = "shard-4CySY1Dbb7naIUefq0miR4APZTrZzppiv"
-        url = "https://api.shard-ai.xyz/v1/images/generations"
+        api_key = os.getenv('SAPI_KEY')
+        url = os.getenv('IMG_URL')
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
