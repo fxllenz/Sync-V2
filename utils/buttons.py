@@ -9,6 +9,7 @@ def get_custom_emoji(emoji_name: str) -> str:
         "utility": "<:utility:1287985608098320407>",
         "moderation":"<:moderation:1288101755577700432>", 
         "ai": "<:ai:1287985606797824102>",
+        "fun":"<:fire:1288101291993726996>"
     }
     return custom_emojis.get(emoji_name, "❓")
 
@@ -67,6 +68,24 @@ def get_help_embeds(self, ctx):
      pass
 
 
+    fun = Embed(title="<:fire:1288101291993726996> | Sync Help - Fun", description="``dice``", color=nextcord.Color.from_rgb(255,255,255))
+    fun.set_author(name=f"User ID: {ctx.user.id}")
+    fun.set_footer(text=f"Guild ID: {ctx.guild.id}")
+    try:
+     fun.set_author(icon_url=ctx.user.avatar.url)
+    except Exception as e:
+     pass
+    try:
+     fun.set_footer(icon_url=ctx.guild.icon.url)
+    except Exception as e:
+     pass
+
+
+
+
+
+
+
     moderation = Embed(title="<:moderation:1288101755577700432> | Sync Help - Moderation", description="``ban`` - ``unban``", color=nextcord.Color.from_rgb(255,255,255))
     moderation.set_author(name=f"User ID: {ctx.user.id}")
     moderation.set_footer(text=f"Guild ID: {ctx.guild.id}")
@@ -98,6 +117,7 @@ def get_help_embeds(self, ctx):
         "Home": home,
         "Utility": utility,
         "Moderation": moderation,
-        "AI": ai
+        "AI": ai,
+        "Fun": fun,
     }
     return category_embeds
