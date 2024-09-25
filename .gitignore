@@ -6,4 +6,6 @@ cogs/__pycache__/ai.cpython-311.pyc
 cogs/__pycache__/fun.cpython-311.pyc
 cogs/__pycache__/moderation.cpython-311.pyc
 cogs/__pycache__/utility.cpython-311.pyc
-utils/__pycache__/
+utils/__pycache__/buttons.cpython-311.pyc
+utils/__pycache__/cogs.cpython-311.pyc
+utils/__pycache__/permissions.cpython-311.pyc
