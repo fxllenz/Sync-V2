@@ -22,7 +22,37 @@ class Fun(commands.Cog):
         embed = nextcord.Embed(title="Dice Roll", description=f"> **You Rolled A  {random.randint(1, 6)}**", color=nextcord.Color.from_rgb(255,255,255))
         await ctx.send(embed=embed)
 
-    
+    # Credits To .puzzy. For This Command
+    @nextcord.slash_command(
+        name="rainbow-text", description="Make Text Rainbow In Discord!"
+    )
+    async def rainbowText(self, interaction: nextcord.Interaction, text: str):
+        rainbowStr = ""
+
+        def randomColor():
+            list = ["30", "31", "32", "33", "34", "35", "36", "37"]
+            randomC = random.choice(list)
+            return randomC
+
+        for char in text:
+            char = f"[0;{randomColor()}m{char}[0;0m"
+            rainbowStr += char
+        if len(rainbowStr) > 4000:
+            await interaction.response.send_message(
+                embed=nextcord.Embed(
+                    color=nextcord.Color.from_rgb(255, 255, 255),
+                    title=f"Rainbow Text Error",
+                    description="> **Text Must Not Exceed 4000 Characters**",
+                )
+            )
+        else:
+            await interaction.response.send_message(
+                embed=nextcord.Embed(
+                    color=nextcord.Color.from_rgb(255, 255, 255),
+                    title=f"Rainbow Text",
+                    description=f"```ansi\n{rainbowStr}```",
+                )
+            )    
 
 
 
